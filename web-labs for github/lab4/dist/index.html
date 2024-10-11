@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Система Управління Бібліотекою</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center">Система Управління Бібліотекою</h1>
+
+      <!-- Add Book Form -->
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4 class="card-title">Додати Книгу</h4>
+          <form id="book-form">
+            <div class="mb-3">
+              <input
+                type="text"
+                id="book-title"
+                class="form-control"
+                placeholder="Назва книги"
+              />
+              <small id="titleError" class="form-text text-danger"></small>
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                id="book-author"
+                class="form-control"
+                placeholder="Автор"
+              />
+              <small id="authorError" class="form-text text-danger"></small>
+            </div>
+            <div class="mb-3">
+              <input
+                type="number"
+                id="book-year"
+                class="form-control"
+                placeholder="Рік видання"
+              />
+              <small id="yearError" class="form-text text-danger"></small>
+            </div>
+            <button type="submit" class="btn btn-success">Додати Книгу</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Add User Form -->
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4 class="card-title">Додати Користувача</h4>
+          <form id="user-form">
+            <div class="mb-3">
+              <input
+                type="text"
+                id="user-name"
+                class="form-control"
+                placeholder="Ім'я"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="email"
+                id="user-email"
+                class="form-control"
+                placeholder="Email"
+              />
+            </div>
+            <button type="submit" class="btn btn-success">
+              Додати Користувача
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Book List -->
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4 class="card-title">Список Книг</h4>
+          <ul id="book-list" class="list-group"></ul>
+        </div>
+      </div>
+
+      <!-- User List -->
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4 class="card-title">Список Користувачів</h4>
+          <ul id="user-list" class="list-group"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальне вікно для вибору користувача -->
+    <div
+      class="modal fade"
+      id="userModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="userModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="userModalLabel">
+              Вибір користувача за ID
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="userSelectForm">
+              <div class="form-group">
+                <label for="userIdInput">Введіть ID користувача</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="userIdInput"
+                  placeholder="ID користувача"
+                />
+                <small id="userIdError" class="form-text text-danger"></small>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Закрити
+            </button>
+            <button type="button" class="btn btn-primary" id="selectUserBtn">
+              Вибрати користувача
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
